@@ -83,6 +83,11 @@ export const PurchasingModule: React.FC<PurchasingModuleProps> = ({
     .reduce((acc, i) => acc + i.totalQuantity, 0);
   const ladrilloCurrentSupplierId = consolidatedItems.find(i => i.resourceId === 'mat-ladrillo-6h')?.supplierId;
 
+  const porcelanatoTotalQty = consolidatedItems
+    .filter(i => i.resourceId === 'mat-porcelanato' || i.resourceId === 'mat-ceramica')
+    .reduce((acc, i) => acc + i.totalQuantity, 0);
+  const porcelanatoCurrentSupplierId = consolidatedItems.find(i => i.resourceId === 'mat-porcelanato')?.supplierId;
+
   const filteredConsolidated = consolidatedItems.filter(item => {
     const matchesSupplier =
       selectedSupplierFilter === 'all' || item.supplierId === selectedSupplierFilter;
@@ -237,12 +242,12 @@ export const PurchasingModule: React.FC<PurchasingModuleProps> = ({
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           {/* Cemento IP-30 */}
           <div className="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="font-bold text-emerald-400">Cemento IP-30</span>
+                <span className="font-bold text-amber-400">Cemento IP-30</span>
                 <span className="font-mono text-[11px] text-slate-300 bg-slate-700 px-1.5 py-0.5 rounded">
                   {formatQty(cementoTotalQty)} bolsas
                 </span>
@@ -266,21 +271,21 @@ export const PurchasingModule: React.FC<PurchasingModuleProps> = ({
                       onClick={() => onUpdateMaterialSupplier('mat-cemento', opt.id)}
                       className={`w-full text-left p-2 rounded-lg flex items-center justify-between transition-all border ${
                         isSelected
-                          ? 'bg-emerald-600/30 border-emerald-500 text-white shadow-xs'
+                          ? 'bg-amber-600/30 border-amber-500 text-white shadow-xs'
                           : 'bg-slate-800 hover:bg-slate-700/80 border-slate-700 text-slate-300'
                       }`}
                     >
                       <div>
                         <div className="font-semibold flex items-center gap-1.5">
                           {opt.name}
-                          {isSelected && <Check className="w-3.5 h-3.5 text-emerald-400" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-amber-400" />}
                         </div>
                         <div className="text-[10px] text-slate-400">
                           Total obra: <span className="font-mono">{formatBs(totalEst)}</span>
                         </div>
                       </div>
                       <div className="text-right">
-                        <span className="font-mono font-bold text-emerald-300 text-xs">
+                        <span className="font-mono font-bold text-amber-300 text-xs">
                           {formatBs(opt.price)}
                         </span>
                         <div className="text-[9px] text-slate-400">{opt.tag}</div>
@@ -296,7 +301,7 @@ export const PurchasingModule: React.FC<PurchasingModuleProps> = ({
           <div className="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="font-bold text-emerald-400">Acero Corrugado Gr. 500</span>
+                <span className="font-bold text-blue-400">Acero Corrugado Gr. 500</span>
                 <span className="font-mono text-[11px] text-slate-300 bg-slate-700 px-1.5 py-0.5 rounded">
                   {formatQty(fierroTotalQty)} kg
                 </span>
@@ -321,21 +326,21 @@ export const PurchasingModule: React.FC<PurchasingModuleProps> = ({
                       onClick={() => onUpdateMaterialSupplier('mat-fierro', opt.id)}
                       className={`w-full text-left p-2 rounded-lg flex items-center justify-between transition-all border ${
                         isSelected
-                          ? 'bg-emerald-600/30 border-emerald-500 text-white shadow-xs'
+                          ? 'bg-blue-600/30 border-blue-500 text-white shadow-xs'
                           : 'bg-slate-800 hover:bg-slate-700/80 border-slate-700 text-slate-300'
                       }`}
                     >
                       <div>
                         <div className="font-semibold flex items-center gap-1.5">
                           {opt.name}
-                          {isSelected && <Check className="w-3.5 h-3.5 text-emerald-400" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-blue-400" />}
                         </div>
                         <div className="text-[10px] text-slate-400">
                           Total obra: <span className="font-mono">{formatBs(totalEst)}</span>
                         </div>
                       </div>
                       <div className="text-right">
-                        <span className="font-mono font-bold text-emerald-300 text-xs">
+                        <span className="font-mono font-bold text-blue-300 text-xs">
                           {formatBs(opt.price)}/kg
                         </span>
                         <div className="text-[9px] text-slate-400">{opt.tag}</div>
@@ -351,7 +356,7 @@ export const PurchasingModule: React.FC<PurchasingModuleProps> = ({
           <div className="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700/80 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="font-bold text-emerald-400">Ladrillo 6H 18x25x12</span>
+                <span className="font-bold text-orange-400">Ladrillo 6H 18x25x12</span>
                 <span className="font-mono text-[11px] text-slate-300 bg-slate-700 px-1.5 py-0.5 rounded">
                   {formatQty(ladrilloTotalQty)} pzas
                 </span>
@@ -375,22 +380,80 @@ export const PurchasingModule: React.FC<PurchasingModuleProps> = ({
                       onClick={() => onUpdateMaterialSupplier('mat-ladrillo-6h', opt.id)}
                       className={`w-full text-left p-2 rounded-lg flex items-center justify-between transition-all border ${
                         isSelected
-                          ? 'bg-emerald-600/30 border-emerald-500 text-white shadow-xs'
+                          ? 'bg-orange-600/30 border-orange-500 text-white shadow-xs'
                           : 'bg-slate-800 hover:bg-slate-700/80 border-slate-700 text-slate-300'
                       }`}
                     >
                       <div>
                         <div className="font-semibold flex items-center gap-1.5">
                           {opt.name}
-                          {isSelected && <Check className="w-3.5 h-3.5 text-emerald-400" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-orange-400" />}
                         </div>
                         <div className="text-[10px] text-slate-400">
                           Total obra: <span className="font-mono">{formatBs(totalEst)}</span>
                         </div>
                       </div>
                       <div className="text-right">
-                        <span className="font-mono font-bold text-emerald-300 text-xs">
+                        <span className="font-mono font-bold text-orange-300 text-xs">
                           {formatBs(opt.price)}/pza
+                        </span>
+                        <div className="text-[9px] text-slate-400">{opt.tag}</div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Pisos, Porcelanatos y Baños (GLADYMAR / ROHO / IMPORTACRUZ / CERABOL) */}
+          <div className="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700/80 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-bold text-teal-400">Pisos & Porcelanatos</span>
+                <span className="font-mono text-[11px] text-slate-300 bg-slate-700 px-1.5 py-0.5 rounded">
+                  {formatQty(porcelanatoTotalQty)} m2
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-400 mb-3">
+                Ref. CADECOCRUZ: <span className="text-white font-mono font-semibold">Bs 85.00/m2</span>
+              </p>
+
+              <div className="space-y-1.5">
+                {[
+                  { id: 'sup-cerabol', name: 'CERABOL', price: 82.00, tag: 'Gres 60x60' },
+                  { id: 'sup-importacruz', name: 'IMPORTACRUZ', price: 83.00, tag: 'Alto Tránsito' },
+                  { id: 'sup-roho', name: 'ROHO Homecenter', price: 84.50, tag: 'Importado' },
+                  { id: 'sup-gladymar', name: 'GLADYMAR S.A.', price: 86.00, tag: 'Rectificado' }
+                ].map(opt => {
+                  const isSelected = porcelanatoCurrentSupplierId === opt.id;
+                  const totalEst = porcelanatoTotalQty * opt.price;
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => {
+                        onUpdateMaterialSupplier('mat-porcelanato', opt.id);
+                        onUpdateMaterialSupplier('mat-ceramica', opt.id);
+                      }}
+                      className={`w-full text-left p-2 rounded-lg flex items-center justify-between transition-all border ${
+                        isSelected
+                          ? 'bg-teal-600/30 border-teal-500 text-white shadow-xs'
+                          : 'bg-slate-800 hover:bg-slate-700/80 border-slate-700 text-slate-300'
+                      }`}
+                    >
+                      <div>
+                        <div className="font-semibold flex items-center gap-1.5">
+                          {opt.name}
+                          {isSelected && <Check className="w-3.5 h-3.5 text-teal-400" />}
+                        </div>
+                        <div className="text-[10px] text-slate-400">
+                          Total obra: <span className="font-mono">{formatBs(totalEst)}</span>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <span className="font-mono font-bold text-teal-300 text-xs">
+                          {formatBs(opt.price)}/m2
                         </span>
                         <div className="text-[9px] text-slate-400">{opt.tag}</div>
                       </div>

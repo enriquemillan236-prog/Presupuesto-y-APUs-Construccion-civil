@@ -137,7 +137,14 @@ export const APUEditorModal: React.FC<APUEditorModalProps> = ({
 
     if (type === 'material') {
       const mat = resource as ResourceMaterial;
+      const validSuppliers = getValidSuppliersForMaterial(mat, suppliers);
       const initialQuote = mat.quotes && mat.quotes.length > 0 ? mat.quotes[0] : null;
+      const initialSupplierId = initialQuote
+        ? initialQuote.supplierId
+        : (validSuppliers.some(s => s.id === mat.defaultSupplierId)
+            ? mat.defaultSupplierId
+            : (validSuppliers[0]?.id || suppliers[0]?.id || 'sup-itacamba'));
+
       newComp = {
         id: `c-mat-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
         type: 'material',
@@ -146,7 +153,7 @@ export const APUEditorModal: React.FC<APUEditorModalProps> = ({
         unit: mat.unit,
         quantity: 1.0,
         unitPrice: initialQuote ? initialQuote.price : mat.defaultUnitPrice,
-        supplierId: initialQuote ? initialQuote.supplierId : (mat.defaultSupplierId || suppliers[0]?.id || 'sup-itacamba'),
+        supplierId: initialSupplierId,
         quoteBrand: initialQuote ? initialQuote.brandOrNote : undefined
       };
     } else if (type === 'labor') {

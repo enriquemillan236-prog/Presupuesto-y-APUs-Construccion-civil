@@ -91,7 +91,7 @@ export const INITIAL_SUPPLIERS: Supplier[] = [
     notes: 'Distribuidor mayorista de fierro corrugado, alambre recocido de amarre N° 16, clavos y perfiles.'
   },
 
-  // CERÁMICAS Y LADRILLERAS
+  // LADRILLOS Y OBRA GRUESA (INCERPAZ / CERÁMICA NORTE)
   {
     id: 'sup-incerpaz',
     name: 'Cerámica INCERPAZ S.A. Santa Cruz',
@@ -100,7 +100,7 @@ export const INITIAL_SUPPLIERS: Supplier[] = [
     city: 'Santa Cruz de la Sierra',
     address: 'Doble Vía a La Guardia Km 6',
     email: 'atencion.scz@incerpaz.com',
-    category: 'Cerámica y Ladrillos',
+    category: 'Ladrillos y Obra Gruesa',
     notes: 'Ladrillos cerámicos 6 huecos 18x25x12 cm, tejas coloniales y cumbreras esmaltadas.'
   },
   {
@@ -111,19 +111,65 @@ export const INITIAL_SUPPLIERS: Supplier[] = [
     city: 'Santa Cruz de la Sierra',
     address: 'Carretera al Norte Km 9',
     email: 'ventas@ceramicanorte.com.bo',
-    category: 'Cerámica y Ladrillos',
+    category: 'Ladrillos y Obra Gruesa',
     notes: 'Ladrillos 6H estructurales de alta cocción, bovedillas para losa y pisos rústicos.'
   },
   {
     id: 'sup-ceraitaugua',
     name: 'Cerámica Itauguá Santa Cruz',
-    nit: '1048291039',
-    phone: '+591 3 355-6677 / 773-11200',
+    nit: '1025549018',
+    phone: '+591 3 355-2211 / 760-88112',
     city: 'Santa Cruz de la Sierra',
     address: 'Carretera a Cotoca Km 7',
-    email: 'contacto@ceramicaitaugua.com.bo',
-    category: 'Cerámica y Ladrillos',
-    notes: 'Industria cerámica de ladrillo 6 huecos, teja colonial roja y ladrillo adobito visto.'
+    email: 'ventas@ceramicaitaugua.com.bo',
+    category: 'Ladrillos y Obra Gruesa',
+    notes: 'Ladrillos 6H cerámicos de alta cocción, tejas coloniales y material cerámico de albañilería en Santa Cruz.'
+  },
+
+  // PISOS, PORCELANATOS, REVESTIMIENTOS Y BAÑOS (GLADYMAR / ROHO / IMPORTACRUZ / CERABOL)
+  {
+    id: 'sup-gladymar',
+    name: 'GLADYMAR S.A. (Pisos, Porcelanatos & Baños)',
+    nit: '1020394012',
+    phone: '+591 3 346-6000 / 770-88000',
+    city: 'Santa Cruz de la Sierra',
+    address: 'Carretera al Norte Km 4.5 / Showroom Equipetrol 3er Anillo',
+    email: 'ventas.scz@gladymar.com',
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
+    notes: 'Líder boliviano en porcelanatos esmaltados, pisos rectificados, zócalos, sanitarios Deca y grifería de lujo.'
+  },
+  {
+    id: 'sup-roho',
+    name: 'ROHO Homecenter Santa Cruz',
+    nit: '1039482015',
+    phone: '+591 3 318-7000 / 800-107646',
+    city: 'Santa Cruz de la Sierra',
+    address: 'Av. Banzer entre 3er y 4to Anillo',
+    email: 'atencion.cliente@roho.com.bo',
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
+    notes: 'Homecenter integral: pisos porcelanatos importados, revestimientos de pared, loza sanitaria y box de baño.'
+  },
+  {
+    id: 'sup-importacruz',
+    name: 'IMPORTACRUZ S.R.L. (Pisos, Bautech & Piedras Sinterizadas)',
+    nit: '1028394810',
+    phone: '+591 3 343-8899 / 766-22110',
+    city: 'Santa Cruz de la Sierra',
+    address: 'Av. Cristo Redentor entre 4to y 5to Anillo N° 4200',
+    email: 'ventas@importacruz.com.bo',
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
+    notes: 'Especialista en piedras sinterizadas para mesones/islas, porcelanatos de gran formato y línea oficial Bautech impermeabilizantes.'
+  },
+  {
+    id: 'sup-cerabol',
+    name: 'CERABOL Cerámica Boliviana',
+    nit: '1019283746',
+    phone: '+591 3 346-3300 / 785-11000',
+    city: 'Santa Cruz de la Sierra',
+    address: 'Parque Industrial Manzana 7 / Av. Banzer 4to Anillo',
+    email: 'comercial@cerabol.com',
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
+    notes: 'Fábrica de cerámicas esmaltadas para pisos, zócalos, revestimientos de cocina y baño, gres rústico y pulido.'
   },
 
   // FERRETERÍAS Y DISTRIBUIDORAS
@@ -371,28 +417,32 @@ export const INITIAL_MATERIALS: ResourceMaterial[] = [
     id: 'mat-porcelanato',
     name: 'Piso Porcelanato 60x60 cm rectificado',
     unit: 'm2',
-    category: 'Pisos',
-    defaultUnitPrice: 85.00,
-    defaultSupplierId: 'sup-industrial-oriente',
-    specification: 'Porcelanato pulido rectificado tránsito alto',
-    cadecocruzPrice: 87.00,
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
+    defaultUnitPrice: 86.00,
+    defaultSupplierId: 'sup-gladymar',
+    specification: 'Porcelanato pulido rectificado tránsito alto para residencias',
+    cadecocruzPrice: 85.00,
     quotes: [
-      { supplierId: 'sup-industrial-oriente', supplierName: 'Ferretería Industrial del Oriente', price: 85.00, brandOrNote: 'Porcelanato 60x60 Pulido' },
-      { supplierId: 'sup-comercial-scz', supplierName: 'Comercial Santa Cruz Materiales', price: 82.00, brandOrNote: 'Porcelanato Tránsito Residencial' }
+      { supplierId: 'sup-gladymar', supplierName: 'GLADYMAR S.A.', price: 86.00, brandOrNote: 'Gladymar Porcelanato Rectificado 60x60' },
+      { supplierId: 'sup-roho', supplierName: 'ROHO Homecenter', price: 84.50, brandOrNote: 'Roho Porcelanato Importado Pulido' },
+      { supplierId: 'sup-importacruz', supplierName: 'IMPORTACRUZ S.R.L.', price: 83.00, brandOrNote: 'Importacruz Gres Porcelánico Alto Tránsito' },
+      { supplierId: 'sup-cerabol', supplierName: 'CERABOL Cerámica Boliviana', price: 82.00, brandOrNote: 'Cerabol Gres Porcelánico 60x60' }
     ]
   },
   {
     id: 'mat-ceramica',
     name: 'Piso Cerámica esmaltada primera calidad',
     unit: 'm2',
-    category: 'Pisos',
-    defaultUnitPrice: 48.00,
-    defaultSupplierId: 'sup-industrial-oriente',
-    specification: 'Piso cerámico lavable',
-    cadecocruzPrice: 50.00,
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
+    defaultUnitPrice: 46.00,
+    defaultSupplierId: 'sup-cerabol',
+    specification: 'Piso cerámico lavable de alto tránsito para áreas de servicio y baños',
+    cadecocruzPrice: 48.00,
     quotes: [
-      { supplierId: 'sup-industrial-oriente', supplierName: 'Ferretería Industrial del Oriente', price: 48.00, brandOrNote: 'Cerámica Esmaltada 45x45' },
-      { supplierId: 'sup-ceranorte', supplierName: 'Cerámica Norte S.R.L.', price: 45.00, brandOrNote: 'Cerámica Ceranorte' }
+      { supplierId: 'sup-cerabol', supplierName: 'CERABOL Cerámica Boliviana', price: 46.00, brandOrNote: 'Cerabol Cerámica Esmaltada 45x45' },
+      { supplierId: 'sup-gladymar', supplierName: 'GLADYMAR S.A.', price: 48.00, brandOrNote: 'Gladymar Piso Cerámico Primera' },
+      { supplierId: 'sup-roho', supplierName: 'ROHO Homecenter', price: 47.00, brandOrNote: 'Roho Cerámica Piso Alto Tránsito' },
+      { supplierId: 'sup-importacruz', supplierName: 'IMPORTACRUZ S.R.L.', price: 47.50, brandOrNote: 'Importacruz Cerámica Primera Calidad' }
     ]
   },
   {
@@ -407,13 +457,17 @@ export const INITIAL_MATERIALS: ResourceMaterial[] = [
   },
   {
     id: 'mat-granito',
-    name: 'Mesón de granito negro San Gabriel e=2cm',
+    name: 'Mesón de granito negro / Piedra Sinterizada e=2cm',
     unit: 'ml',
-    category: 'Acabados',
+    category: 'Impermeabilizantes y Piedras Sinterizadas',
     defaultUnitPrice: 380.00,
-    defaultSupplierId: 'sup-industrial-oriente',
-    specification: 'Granito natural pulido y abrillantado',
-    cadecocruzPrice: 390.00
+    defaultSupplierId: 'sup-importacruz',
+    specification: 'Piedra sinterizada o granito natural pulido y abrillantado',
+    cadecocruzPrice: 390.00,
+    quotes: [
+      { supplierId: 'sup-importacruz', supplierName: 'IMPORTACRUZ S.R.L.', price: 380.00, brandOrNote: 'Importacruz Piedra Sinterizada / Granito San Gabriel' },
+      { supplierId: 'sup-gladymar', supplierName: 'GLADYMAR S.A.', price: 395.00, brandOrNote: 'Gladymar Mesón Granito Natural Pulido' }
+    ]
   },
   {
     id: 'mat-puerta-prin',
@@ -439,35 +493,49 @@ export const INITIAL_MATERIALS: ResourceMaterial[] = [
     id: 'mat-inodoro-deca',
     name: 'Inodoro con tanque bajo Deca blanco',
     unit: 'pza',
-    category: 'Sanitarios',
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
     defaultUnitPrice: 580.00,
-    defaultSupplierId: 'sup-industrial-oriente',
-    specification: 'Loza vitrificada blanca Deca',
+    defaultSupplierId: 'sup-gladymar',
+    specification: 'Loza vitrificada blanca Deca con asiento',
     cadecocruzPrice: 590.00,
     quotes: [
-      { supplierId: 'sup-industrial-oriente', supplierName: 'Ferretería Industrial del Oriente', price: 580.00, brandOrNote: 'Deca Blanco Original' },
-      { supplierId: 'sup-constructor', supplierName: 'Ferretería El Constructor S.R.L.', price: 570.00, brandOrNote: 'Inodoro Dual Flush Deca' }
+      { supplierId: 'sup-gladymar', supplierName: 'GLADYMAR S.A.', price: 580.00, brandOrNote: 'Gladymar Inodoro Deca Monte Carlo' },
+      { supplierId: 'sup-roho', supplierName: 'ROHO Homecenter', price: 570.00, brandOrNote: 'Roho Inodoro Dual Flush Ecológico' },
+      { supplierId: 'sup-importacruz', supplierName: 'IMPORTACRUZ S.R.L.', price: 585.00, brandOrNote: 'Importacruz Loza Sanitaria Premium' },
+      { supplierId: 'sup-cerabol', supplierName: 'CERABOL Cerámica Boliviana', price: 575.00, brandOrNote: 'Cerabol Inodoro Sanitario Plus' }
     ]
   },
   {
     id: 'mat-lavamano-deca',
     name: 'Lavamanos con pedestal Deca blanco',
     unit: 'pza',
-    category: 'Sanitarios',
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
     defaultUnitPrice: 320.00,
-    defaultSupplierId: 'sup-industrial-oriente',
+    defaultSupplierId: 'sup-gladymar',
     specification: 'Lavamanos con grifería monomando',
-    cadecocruzPrice: 330.00
+    cadecocruzPrice: 330.00,
+    quotes: [
+      { supplierId: 'sup-gladymar', supplierName: 'GLADYMAR S.A.', price: 320.00, brandOrNote: 'Gladymar Lavamanos Deca c/ Pedestal' },
+      { supplierId: 'sup-roho', supplierName: 'ROHO Homecenter', price: 315.00, brandOrNote: 'Roho Lavamanos Monomando Blanco' },
+      { supplierId: 'sup-importacruz', supplierName: 'IMPORTACRUZ S.R.L.', price: 330.00, brandOrNote: 'Importacruz Lavamanos Loza Vitrificada' },
+      { supplierId: 'sup-cerabol', supplierName: 'CERABOL Cerámica Boliviana', price: 318.00, brandOrNote: 'Cerabol Lavamanos Ovalín' }
+    ]
   },
   {
     id: 'mat-ducha-deca',
     name: 'Kit Ducha cromada Deca con mezcladora',
     unit: 'pza',
-    category: 'Sanitarios',
+    category: 'Pisos, Porcelanatos, Revestimientos y Baños',
     defaultUnitPrice: 260.00,
-    defaultSupplierId: 'sup-industrial-oriente',
+    defaultSupplierId: 'sup-gladymar',
     specification: 'Mezcladora monocomando y brazo Deca',
-    cadecocruzPrice: 270.00
+    cadecocruzPrice: 270.00,
+    quotes: [
+      { supplierId: 'sup-gladymar', supplierName: 'GLADYMAR S.A.', price: 260.00, brandOrNote: 'Gladymar Kit Ducha Deca Cromada' },
+      { supplierId: 'sup-roho', supplierName: 'ROHO Homecenter', price: 255.00, brandOrNote: 'Roho Grifería y Ducha Monocomando' },
+      { supplierId: 'sup-importacruz', supplierName: 'IMPORTACRUZ S.R.L.', price: 265.00, brandOrNote: 'Importacruz Ducha Acero Inox' },
+      { supplierId: 'sup-cerabol', supplierName: 'CERABOL Cerámica Boliviana', price: 258.00, brandOrNote: 'Cerabol Set Ducha Cromada' }
+    ]
   },
   {
     id: 'mat-placa-tramontina',
@@ -525,13 +593,17 @@ export const INITIAL_MATERIALS: ResourceMaterial[] = [
   },
   {
     id: 'mat-impermeab',
-    name: 'Pintura asfáltica impermeabilizante Igol',
+    name: 'Impermeabilizante / Manta Líquida Bautech / Igol',
     unit: 'galon',
-    category: 'Químicos',
-    defaultUnitPrice: 95.00,
-    defaultSupplierId: 'sup-constructor',
-    specification: 'Emulsión asfáltica Sika Igol Denso',
-    cadecocruzPrice: 98.00
+    category: 'Impermeabilizantes y Piedras Sinterizadas',
+    defaultUnitPrice: 92.00,
+    defaultSupplierId: 'sup-importacruz',
+    specification: 'Línea Bautech Manta Líquida o emulsión asfáltica Igol Denso',
+    cadecocruzPrice: 94.00,
+    quotes: [
+      { supplierId: 'sup-importacruz', supplierName: 'IMPORTACRUZ S.R.L.', price: 92.00, brandOrNote: 'Bautech Manta Líquida (Importacruz)' },
+      { supplierId: 'sup-constructor', supplierName: 'Ferretería El Constructor S.R.L.', price: 95.00, brandOrNote: 'Sika Igol Denso' }
+    ]
   }
 ];
 
@@ -672,9 +744,9 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     name: 'IMPERMEABILIZACION DE VIGAS DE FUNDACION',
     unit: 'ML',
     category: 'Aislaciones',
-    specification: 'Pintura asfáltica de doble capa más polietileno sobre corona de vigas para evitar ascenso por capilaridad.',
+    specification: 'Pintura impermeabilizante Bautech / Igol Denso sobre corona de vigas para evitar ascenso por capilaridad.',
     components: [
-      { id: 'c-7-1', type: 'material', resourceId: 'mat-impermeab', description: 'Pintura asfáltica Igol Denso', unit: 'galon', quantity: 0.08, unitPrice: 95.00, supplierId: 'sup-constructor' },
+      { id: 'c-7-1', type: 'material', resourceId: 'mat-impermeab', description: 'Impermeabilizante Bautech / Igol', unit: 'galon', quantity: 0.08, unitPrice: 92.00, supplierId: 'sup-importacruz', quoteBrand: 'Bautech Manta Líquida (Importacruz)' },
       { id: 'c-7-2', type: 'labor', resourceId: 'lab-maestro', description: 'Albañil aplicador', unit: 'hh', quantity: 0.25, unitPrice: 24.00 },
       { id: 'c-7-3', type: 'labor', resourceId: 'lab-ayudante', description: 'Ayudante', unit: 'hh', quantity: 0.20, unitPrice: 15.00 }
     ]
@@ -1049,7 +1121,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Acabados y Cocina',
     specification: 'Provisión e instalación de granito negro San Gabriel e=2cm con zócalo y perforaciones para bacha.',
     components: [
-      { id: 'c-34-1', type: 'material', resourceId: 'mat-granito', description: 'Placa granito negro 60cm pulido', unit: 'ml', quantity: 1.0, unitPrice: 380.00, supplierId: 'sup-industrial-oriente' },
+      { id: 'c-34-1', type: 'material', resourceId: 'mat-granito', description: 'Placa granito negro / Piedra Sinterizada 60cm', unit: 'ml', quantity: 1.0, unitPrice: 380.00, supplierId: 'sup-importacruz', quoteBrand: 'Importacruz Piedra Sinterizada' },
       { id: 'c-34-2', type: 'material', resourceId: 'mat-pegamento', description: 'Pegamento epóxico y silicona', unit: 'bolsa', quantity: 0.2, unitPrice: 65.00, supplierId: 'sup-constructor' },
       { id: 'c-34-3', type: 'labor', resourceId: 'lab-maestro', description: 'Instalador marmolero', unit: 'hh', quantity: 2.0, unitPrice: 26.00 }
     ]
@@ -1060,9 +1132,9 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     name: 'ISLA DE COCINA',
     unit: 'M2',
     category: 'Acabados y Cocina',
-    specification: 'Mesón tipo isla en granito con faldones ingletados a 45° y estructura de apoyo.',
+    specification: 'Mesón tipo isla en piedra sinterizada o granito con faldones ingletados a 45° y estructura de apoyo.',
     components: [
-      { id: 'c-35-1', type: 'material', resourceId: 'mat-granito', description: 'Granito negro pulido por m2', unit: 'ml', quantity: 1.6, unitPrice: 380.00, supplierId: 'sup-industrial-oriente' },
+      { id: 'c-35-1', type: 'material', resourceId: 'mat-granito', description: 'Piedra Sinterizada / Granito pulido por m2', unit: 'ml', quantity: 1.6, unitPrice: 380.00, supplierId: 'sup-importacruz', quoteBrand: 'Importacruz Piedra Sinterizada' },
       { id: 'c-35-2', type: 'labor', resourceId: 'lab-maestro', description: 'Marmolero instalador', unit: 'hh', quantity: 3.5, unitPrice: 26.00 }
     ]
   },
@@ -1086,7 +1158,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Artefactos Sanitarios',
     specification: 'Kit mezcladora monocomando y brazo de ducha Deca cromado con accesorios de fijación.',
     components: [
-      { id: 'c-37-1', type: 'material', resourceId: 'mat-ducha-deca', description: 'Kit Ducha Deca cromada', unit: 'pza', quantity: 1.0, unitPrice: 260.00, supplierId: 'sup-industrial-oriente', quoteBrand: 'Deca Original' },
+      { id: 'c-37-1', type: 'material', resourceId: 'mat-ducha-deca', description: 'Kit Ducha Deca cromada', unit: 'pza', quantity: 1.0, unitPrice: 260.00, supplierId: 'sup-gladymar', quoteBrand: 'Gladymar Kit Ducha Deca Cromada' },
       { id: 'c-37-2', type: 'labor', resourceId: 'lab-plomero', description: 'Plomero instalador', unit: 'hh', quantity: 2.0, unitPrice: 24.00 }
     ]
   },
@@ -1098,7 +1170,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Pisos y Revestimientos',
     specification: 'Provisión y colocación de porcelanato 60x60cm rectificado con cemento cola y crucetas 2mm.',
     components: [
-      { id: 'c-38-1', type: 'material', resourceId: 'mat-porcelanato', description: 'Piso Porcelanato 60x60 cm rectificado', unit: 'm2', quantity: 1.08, unitPrice: 85.00, supplierId: 'sup-industrial-oriente', quoteBrand: 'Porcelanato Pulido Rectificado' },
+      { id: 'c-38-1', type: 'material', resourceId: 'mat-porcelanato', description: 'Piso Porcelanato 60x60 cm rectificado', unit: 'm2', quantity: 1.08, unitPrice: 86.00, supplierId: 'sup-gladymar', quoteBrand: 'Gladymar Porcelanato Rectificado 60x60' },
       { id: 'c-38-2', type: 'material', resourceId: 'mat-pegamento', description: 'Cemento cola especial porcelanato', unit: 'bolsa', quantity: 0.35, unitPrice: 28.00, supplierId: 'sup-constructor' },
       { id: 'c-38-3', type: 'labor', resourceId: 'lab-maestro', description: 'Maestro colocador de piso', unit: 'hh', quantity: 1.2, unitPrice: 25.00 },
       { id: 'c-38-4', type: 'labor', resourceId: 'lab-ayudante', description: 'Peón ayudante', unit: 'hh', quantity: 1.0, unitPrice: 15.00 }
@@ -1112,7 +1184,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Pisos y Revestimientos',
     specification: 'Revestimiento en muros de baño y cocina hasta altura de dintel.',
     components: [
-      { id: 'c-39-1', type: 'material', resourceId: 'mat-porcelanato', description: 'Porcelanato para muro', unit: 'm2', quantity: 1.08, unitPrice: 85.00, supplierId: 'sup-industrial-oriente' },
+      { id: 'c-39-1', type: 'material', resourceId: 'mat-porcelanato', description: 'Porcelanato para muro rectificado', unit: 'm2', quantity: 1.08, unitPrice: 86.00, supplierId: 'sup-gladymar', quoteBrand: 'Gladymar Porcelanato Rectificado 60x60' },
       { id: 'c-39-2', type: 'material', resourceId: 'mat-pegamento', description: 'Cemento cola', unit: 'bolsa', quantity: 0.35, unitPrice: 28.00, supplierId: 'sup-constructor' },
       { id: 'c-39-3', type: 'labor', resourceId: 'lab-maestro', description: 'Maestro colocador', unit: 'hh', quantity: 1.4, unitPrice: 25.00 }
     ]
@@ -1125,7 +1197,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Pisos y Revestimientos',
     specification: 'Cerámica esmaltada de alto tránsito para lavandería y áreas de servicio.',
     components: [
-      { id: 'c-40-1', type: 'material', resourceId: 'mat-ceramica', description: 'Piso Cerámica esmaltada primera calidad', unit: 'm2', quantity: 1.08, unitPrice: 48.00, supplierId: 'sup-industrial-oriente', quoteBrand: 'Cerámica Esmaltada 45x45' },
+      { id: 'c-40-1', type: 'material', resourceId: 'mat-ceramica', description: 'Piso Cerámica esmaltada primera calidad', unit: 'm2', quantity: 1.08, unitPrice: 46.00, supplierId: 'sup-cerabol', quoteBrand: 'Cerabol Cerámica Esmaltada 45x45' },
       { id: 'c-40-2', type: 'material', resourceId: 'mat-pegamento', description: 'Cemento cola estándar', unit: 'bolsa', quantity: 0.30, unitPrice: 25.00, supplierId: 'sup-constructor' },
       { id: 'c-40-3', type: 'labor', resourceId: 'lab-maestro', description: 'Albañil colocador', unit: 'hh', quantity: 1.0, unitPrice: 24.00 }
     ]
@@ -1223,7 +1295,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Pisos y Revestimientos',
     specification: 'Zócalo de cerámica cortado a 7cm con borde boleado y empaste superior.',
     components: [
-      { id: 'c-48-1', type: 'material', resourceId: 'mat-ceramica', description: 'Tiras de zócalo cerámico', unit: 'm2', quantity: 0.10, unitPrice: 48.00, supplierId: 'sup-industrial-oriente' },
+      { id: 'c-48-1', type: 'material', resourceId: 'mat-ceramica', description: 'Tiras de zócalo cerámico', unit: 'm2', quantity: 0.10, unitPrice: 46.00, supplierId: 'sup-cerabol', quoteBrand: 'Cerabol Cerámica Esmaltada 45x45' },
       { id: 'c-48-2', type: 'labor', resourceId: 'lab-maestro', description: 'Albañil', unit: 'hh', quantity: 0.35, unitPrice: 24.00 }
     ]
   },
@@ -1235,7 +1307,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Pisos y Revestimientos',
     specification: 'Zócalo de porcelanato rectificado h=8cm empotrado a plomo con el muro.',
     components: [
-      { id: 'c-49-1', type: 'material', resourceId: 'mat-porcelanato', description: 'Zócalo porcelanato cortado', unit: 'm2', quantity: 0.12, unitPrice: 85.00, supplierId: 'sup-industrial-oriente' },
+      { id: 'c-49-1', type: 'material', resourceId: 'mat-porcelanato', description: 'Zócalo porcelanato cortado', unit: 'm2', quantity: 0.12, unitPrice: 86.00, supplierId: 'sup-gladymar', quoteBrand: 'Gladymar Porcelanato Rectificado 60x60' },
       { id: 'c-49-2', type: 'labor', resourceId: 'lab-maestro', description: 'Albañil colocador', unit: 'hh', quantity: 0.40, unitPrice: 25.00 }
     ]
   },
@@ -1259,7 +1331,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Artefactos Sanitarios',
     specification: 'Lavamanos con pedestal blanco línea Deca, grifería monomando y sifón cromado.',
     components: [
-      { id: 'c-51-1', type: 'material', resourceId: 'mat-lavamano-deca', description: 'Lavamanos con pedestal Deca blanco', unit: 'pza', quantity: 1.0, unitPrice: 320.00, supplierId: 'sup-industrial-oriente', quoteBrand: 'Deca Original' },
+      { id: 'c-51-1', type: 'material', resourceId: 'mat-lavamano-deca', description: 'Lavamanos con pedestal Deca blanco', unit: 'pza', quantity: 1.0, unitPrice: 320.00, supplierId: 'sup-gladymar', quoteBrand: 'Gladymar Lavamanos Deca c/ Pedestal' },
       { id: 'c-51-2', type: 'material', resourceId: 'mat-tubo-pvc', description: 'Sifón y flexocople cromado', unit: 'ml', quantity: 1.0, unitPrice: 65.00, supplierId: 'sup-tigre' },
       { id: 'c-51-3', type: 'labor', resourceId: 'lab-plomero', description: 'Plomero instalador', unit: 'hh', quantity: 2.2, unitPrice: 24.00 }
     ]
@@ -1272,7 +1344,7 @@ export const INITIAL_APU_ITEMS: APUItem[] = [
     category: 'Artefactos Sanitarios',
     specification: 'Inodoro de bajo consumo Deca con anillo de cera, pernos y asiento plástico.',
     components: [
-      { id: 'c-52-1', type: 'material', resourceId: 'mat-inodoro-deca', description: 'Inodoro con tanque bajo Deca blanco', unit: 'pza', quantity: 1.0, unitPrice: 580.00, supplierId: 'sup-industrial-oriente', quoteBrand: 'Deca Original' },
+      { id: 'c-52-1', type: 'material', resourceId: 'mat-inodoro-deca', description: 'Inodoro con tanque bajo Deca blanco', unit: 'pza', quantity: 1.0, unitPrice: 580.00, supplierId: 'sup-gladymar', quoteBrand: 'Gladymar Inodoro Deca Monte Carlo' },
       { id: 'c-52-2', type: 'material', resourceId: 'mat-tubo-pvc', description: 'Anillo de cera y flexocople', unit: 'ml', quantity: 1.0, unitPrice: 45.00, supplierId: 'sup-tigre' },
       { id: 'c-52-3', type: 'labor', resourceId: 'lab-plomero', description: 'Plomero instalador', unit: 'hh', quantity: 2.5, unitPrice: 24.00 }
     ]

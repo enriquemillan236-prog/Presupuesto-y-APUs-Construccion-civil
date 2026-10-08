@@ -402,7 +402,38 @@ export const MaterialsDBModule: React.FC<MaterialsDBModuleProps> = ({
                       value={editingItem.name}
                       onChange={e => setEditingItem({ ...editingItem, name: e.target.value })}
                       className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 focus:outline-hidden focus:border-emerald-600 font-medium"
+                      placeholder="Ej: Cemento IP-30, Fierro 8mm, Porcelanato 60x60..."
                     />
+                  </div>
+                  <div>
+                    <label className="block text-slate-700 font-semibold mb-1">Categoría de Insumo (Santa Cruz)</label>
+                    <select
+                      value={editingItem.category || 'Aglomerantes'}
+                      onChange={e => {
+                        const newCat = e.target.value;
+                        const validForNewCat = getValidSuppliersForMaterial(
+                          { id: editingItem.id, name: editingItem.name, category: newCat },
+                          suppliers
+                        );
+                        setEditingItem({
+                          ...editingItem,
+                          category: newCat,
+                          defaultSupplierId: validForNewCat[0]?.id || suppliers[0]?.id
+                        });
+                      }}
+                      className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 focus:outline-hidden focus:border-emerald-600 font-medium"
+                    >
+                      <option value="Aglomerantes">Aglomerantes (Cemento IP-30, Cal, Yeso)</option>
+                      <option value="Aceros">Aceros (Fierro Corrugado, Alambre, Costaneras)</option>
+                      <option value="Mampostería">Ladrillos y Obra Gruesa (Ladrillo 6H, Tejas Incerpaz/Ceranorte)</option>
+                      <option value="Pisos, Porcelanatos, Revestimientos y Baños">Pisos, Porcelanatos, Revestimientos y Baños (Gladymar, Roho, Importacruz, Cerabol)</option>
+                      <option value="Impermeabilizantes y Piedras Sinterizadas">Impermeabilizantes y Piedras Sinterizadas (Bautech, Granito)</option>
+                      <option value="Áridos">Áridos (Arena, Grava, Ripio Río Piraí)</option>
+                      <option value="Maderas">Maderas (Tajibo, Ochoó, Puertas)</option>
+                      <option value="Sanitarios">Sanitarios y Tuberías (PVC Tigre)</option>
+                      <option value="Electricidad">Electricidad (Cables THHN, Tramontina)</option>
+                      <option value="Ferretería">Ferretería General & Varios</option>
+                    </select>
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>

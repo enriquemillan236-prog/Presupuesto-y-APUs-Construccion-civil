@@ -239,14 +239,17 @@ export const SuppliersModule: React.FC<SuppliersModuleProps> = ({
                     onChange={e => setEditingSupplier({ ...editingSupplier, category: e.target.value })}
                     className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-900 focus:outline-hidden focus:border-emerald-600 font-medium"
                   >
-                    <option value="Cementera">Cementera (Fábrica / Distribuidora)</option>
-                    <option value="Aceros y Metales">Aceros y Metales (Fierro / Mallas)</option>
-                    <option value="Cerámica y Ladrillos">Cerámica y Ladrillos (Fábrica 6H / Tejas)</option>
-                    <option value="Áridos y Cantera">Áridos y Cantera (Río Piraí)</option>
-                    <option value="Maderas de Construcción y Puertas">Maderas de Construcción y Puertas</option>
-                    <option value="Plomería y Tuberías">Plomería y Tuberías (PVC / Agua)</option>
-                    <option value="Ferretería General & Agregados">Ferretería General & Agregados</option>
-                    <option value="Quincallería y Acabados">Quincallería y Acabados (Deca / Tramontina)</option>
+                    <option value="Cementera">Cementera (Fábrica / Distribuidora SOBOCE, FANCESA, ITAMBA)</option>
+                    <option value="Aceros y Metales">Aceros y Metales (Las Lomas, Monterrey, Aceros Arequipa, Casa del Fierro)</option>
+                    <option value="Ladrillos y Obra Gruesa">Ladrillos y Obra Gruesa (INCERPAZ, Cerámica Norte, Cerámica Itauguá)</option>
+                    <option value="Pisos, Porcelanatos, Revestimientos y Baños">Pisos, Porcelanatos, Revestimientos y Baños (GLADYMAR, ROHO, IMPORTACRUZ, CERABOL)</option>
+                    <option value="Impermeabilizantes y Piedras Sinterizadas">Impermeabilizantes y Piedras Sinterizadas (IMPORTACRUZ Bautech, Granitos)</option>
+                    <option value="Áridos y Cantera">Áridos y Cantera (Río Piraí / Urubó)</option>
+                    <option value="Maderas de Construcción y Puertas">Maderas de Construcción y Puertas (Maderera El Oriente)</option>
+                    <option value="Plomería y Tuberías">Plomería y Tuberías (Plásticos Tigre / TuboCentro)</option>
+                    <option value="Electricidad e Iluminación">Electricidad e Iluminación (Ferretería Industrial del Oriente)</option>
+                    <option value="Ferretería General & Agregados">Ferretería General & Agregados (El Constructor, Comercial SCZ)</option>
+                    <option value="Quincallería y Acabados">Quincallería y Acabados</option>
                   </select>
                 </div>
               </div>
