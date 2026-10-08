@@ -1,0 +1,6 @@
+{
+  "name": "APU & Compras Construcción Bolivia",
+  "description": "Sistema profesional de Análisis de Precios Unitarios (APU), presupuestos de obra civil y optimización de órdenes de compra por proveedor en Bolivia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
